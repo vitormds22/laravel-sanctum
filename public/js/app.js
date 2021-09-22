@@ -2060,13 +2060,17 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //FUNÇÃO ANONIMA PARA UTILIZAR A FUNCIONALIDADE ASSINCRONA
+
 
 axios.get('/sanctum/csrf-cookie').then(function (response) {
   console.log('csrf-cookie', response);
 });
 axios.get('/users').then(function (Response) {
   console.log('users', Response);
+});
+axios.get('/login').then(function (Response) {
+  console.log('login', Response);
 });
 
 /***/ }),

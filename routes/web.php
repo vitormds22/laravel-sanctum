@@ -22,21 +22,19 @@ Route::get('/users', function () {
     return \App\Models\User::all();
 })->middleware('auth:sanctum');
 
+//LOGIN
 Route::get('/login', function(){
     $credentials = [
         'email' => 'volkman.simeon@example.net',
         'password' => 'password'
     ];
 
+    // Validação e dificultar os ataques ao CSRF e XSS
     if (Auth::attempt($credentials)) {
-        // $request->sessuib()->regenerate();
-        // return redirect()->intended('dashboard');
-
-        //Tatica do Laravel para dificultar ataques CSRF, XXS
-        resquest()->session()->regenerate();
+        request()->session()->regenerate();
 
         return auth()->user();
-    }
-    
+    } 
+    // PONTO E VIRGULA, CUIDADO!
     abort(401);
 });
