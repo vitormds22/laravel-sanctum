@@ -2062,7 +2062,12 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-console.log('Olá, Sanctum!');
+axios.get('/sanctum/csrf-cookie').then(function (response) {
+  console.log('csrf-cookie', response);
+});
+axios.get('/users').then(function (Response) {
+  console.log('users', Response);
+});
 
 /***/ }),
 
