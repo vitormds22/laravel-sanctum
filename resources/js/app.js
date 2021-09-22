@@ -1,16 +1,17 @@
 require('./bootstrap');
 
 //FUNÇÃO ANONIMA PARA UTILIZAR A FUNCIONALIDADE ASSINCRONA
-
-    axios.get('/sanctum/csrf-cookie').then(response => {
+(async() => {
+    await axios.get('/sanctum/csrf-cookie').then(response => {
         console.log('csrf-cookie', response)
     });
     
-    axios.get('/users').then((Response) => {
+    await axios.get('/users').then((Response) => {
         console.log('users', Response)
     });
     
-    axios.get('/login').then((Response) => {
+    await axios.get('/login').then((Response) => {
         console.log('login', Response)
     });
+})() //CUIDADO, ESSES DOIS PARENTESES SÃO IMPORTANTES
 

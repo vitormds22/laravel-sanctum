@@ -26,7 +26,7 @@ Route::get('/users', function () {
 Route::get('/login', function(){
     $credentials = [
         'email' => 'volkman.simeon@example.net',
-        'password' => 'password'
+        'password' => 'password',
     ];
 
     // Validação e dificultar os ataques ao CSRF e XSS
