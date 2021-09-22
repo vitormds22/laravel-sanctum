@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// USAMOS UM MIDDLEWARE PARA BLOQUEAR AS ROTAS NO SANCTUM
+Route::get('/users', function () {
+    return \App\Models\User::all();
+})->middleware('auth:sanctum');
+
